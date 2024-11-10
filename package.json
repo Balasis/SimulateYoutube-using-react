@@ -1,0 +1,33 @@
+{
+  "name": "default",
+  "version": "1.0.0",
+  "description": "ReactWithPhp",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "author": "John Balasis",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.26.14",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "file-loader": "^6.2.0",
+    "path": "^0.12.7",
+    "sass": "^1.32.13",
+    "sass-loader": "^11.1.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

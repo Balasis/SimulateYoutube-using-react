@@ -1,0 +1,475 @@
+@use "./variables" as *;
+
+
+
+
+
+
+.toolInfoHidden{
+flex-grow:0;
+	box-sizing:border-box;
+border-radius:3px 3px 3px 3px;
+background-color:grey;
+position:absolute;
+top:3em;
+pointer-events:none;
+transition:0.5s opacity;
+padding:5px;
+opacity:0;
+transform:translateX(-50%);
+
+left:50%;
+
+}
+.toolInfoShow{
+flex-grow:0;
+	box-sizing:border-box;
+border-radius:3px 3px 3px 3px;
+background-color:grey;
+position:absolute;
+top:3em;
+pointer-events:none;
+transition:0.5s opacity;
+padding:5px;
+opacity:1;
+transform:translateX(-50%);
+
+left:50%;
+	}
+
+
+$h:('.header');
+
+#{$h}{
+		
+		z-index:1;
+	
+
+		width:100%;
+		height:56px;
+		background-color:white;
+		position:fixed;
+		display:flex;
+		justify-content:space-between;
+		padding-right:1em;
+		padding-left:1em;
+		align-items:center;
+		box-sizing:border-box;
+		&__Left{
+		
+			box-sizing:border-box;
+			position:relative;
+			display:flex;
+			align-items:center;
+			
+			justify-content:space-around;
+			
+
+				&__Menu{
+
+					
+					display:flex;
+					align-items:center;
+					position:relative;
+					button{cursor:pointer;height:40px;width:40px;border-radius:360px;border:none;background-color:inherit;background-image:url('src/y-menu.png');
+								background-position:center;background-repeat:no-repeat;}
+					button:active{background-color:$activeColor;}
+
+				}
+				&__Logo{
+
+					margin-top:2px;
+					margin-left:15px;
+						display:flex;
+					align-items:center;			
+					svg{height:26px;width:100px;    g{font-size:10px;}}
+					span{font-size:10px;margin-bottom:auto;font-weight:bold;}
+				}
+
+				&__SmallscreenButton{
+					display:flex;
+					button{height:40px;width:40px;border-radius:360px;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;background-color:transparent;}
+					button:active{background-color:$activeColor;}
+					svg{height:24px;width:24px;}		
+					path{fill:$symbolsColor;}
+
+				}
+
+
+		}
+		&__Center{
+		height:32px;
+		display:flex;
+		justify-content:right;
+		flex-grow:1;
+		max-width:688px;
+		div{box-sizing:border-box;}
+
+				&__SearchInput{
+					margin-left:64px;
+					position:relative;
+					height:inherit;
+					flex-grow:1;
+								
+					max-width:700px;
+					border-radius:2px 0px 0px 2px;
+					display:flex;
+					align-items:center;
+					input{width:100%;height:100%;box-sizing:border-box;padding-left:0.5em;font-size:1em;border:1px solid rgb(204,204,204);border-radius:2px 0px 0px 2px;}
+					input:focus{border:1px solid rgb(0,32,235,0.8);}
+					&__Keyboard{position:absolute;right:0px;height:26px;background-image:url("./src/keyboard.png");background-repeat:no-repeat;
+								background-position:left;background-color:transparent;width:34px;background-color:white;}	
+				}
+				&__SearchEnter{	
+					opacity:0.8;		
+					height:inherit;
+					width:4em;
+					border:1px solid rgb(204,204,204);
+					background-color:rgb(248,248,248);
+					position:relative;
+					display:flex;
+					align-items:center;
+					justify-content:center;
+					cursor:pointer;
+					button{all:inherit;}
+					svg{height:20px;width:20px;font-size:10px;path{ fill:$symbolsColor; }}
+				}
+				&__SearchEnter:hover{			
+					opacity:1;
+					transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+				}
+				&__SoundRecord{
+					cursor:pointer;			
+					height:inherit;
+					width:40px;
+					border:1px solid transparent;
+					position:relative;
+					display:flex;
+					align-items:center;
+					justify-content:center;
+					 button{all:inherit;}
+					 svg{font-size:10pt;height:24px;width:24px; path{ fill:$symbolsColor; } }
+				}				
+			
+		}
+		&__Right{
+		background-color:white;
+		box-sizing:border-box;
+		height:40px;
+		display:flex;		
+		min-width:225px;
+		align-items:center;
+		justify-content:space-between;
+		padding-left:5px;
+		
+		div{box-sizing:border-box;}
+		button{cursor:pointer;}
+
+				&__SmallscreenSearch{
+					display:flex;
+					position:relative;
+					svg{font-size:10pt;height:24px;width:24px; path{ fill:$symbolsColor; } }
+					button{height:40px;width:40px;border-radius:360px;border:none;background-color:inherit;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+					button:active{background-color:$activeColor;}
+
+				}
+				&__Apps{
+					position:relative;
+					svg{font-size:10pt;height:24px;width:24px; path{ fill:$symbolsColor; } }
+					button{height:40px;width:40px;border-radius:360px;border:none;background-color:inherit;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+					button:active{background-color:$activeColor;}
+
+				}
+				&__Settings{
+					position:relative;
+					svg{font-size:10pt;height:24px;width:24px; path{ fill:$symbolsColor; } }
+					button{height:40px;width:40px;border-radius:360px;border:none;background-color:inherit;display:flex;align-items:center;justify-content:center;}
+					button:active{background-color:$activeColor;}
+				}
+				&__Login{
+					position:relative;
+					height:100%;
+					width:120px;
+						
+			button{border:1px solid $loginColor;border-radius:2px 2px 2px 2px;display:flex;background-color:inherit;
+				align-items:center;justify-content:center;height:inherit;width:inherit;}
+					&__String{padding-left:6px;font-size:10pt;color:$loginColor;font-family:MS Sans Serif;white-space:nowrap;text-overflow:ellipsis;font-weight:bold;}
+					svg{font-size:10pt;height:24px;width:24px; path{ fill:$loginColor; } }
+
+				}
+
+		}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:640px){
+
+
+.header__Center__SearchInput{
+	margin-left:0.3em;
+	
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:475px){
+	/*Type outside of nest the logo about logo and button because need to Specify the parent of it since we use the same class at side pop up nav*/
+	.header .header__Left .header__Left__Menu{
+		--s-skata:'skata';
+		display:flex;
+		align-items:center;
+		position:relative;
+		button{cursor:pointer;height:40px;width:40px;border-radius:360px;border:none;background-color:inherit;background-image:url('src/y-menu.png');
+					background-position:center;background-repeat:no-repeat;
+		padding:0}
+		button:active{background-color:$activeColor;}
+	}
+	.header .header__Left{
+		box-sizing:border-box;
+		position:relative;
+		display:flex;
+		align-items:center;
+		
+		justify-content:center;
+	}
+	#{$h}{
+		
+		z-index:1;
+	
+
+		width:100%;
+		height:56px;
+		background-color:white;
+		position:fixed;
+		display:flex;
+		justify-content:space-between;
+		padding-right:0.8em;
+		padding-left:0.8em;
+		align-items:center;
+		box-sizing:border-box;
+		&__Left{
+		
+		
+			
+
+			
+			
+				
+
+	
+
+
+		}
+		&__Center{
+		height:32px;
+		display:flex;
+		justify-content:right;
+		flex-grow:1;
+		max-width:688px;
+		div{box-sizing:border-box;}
+
+				&__SearchInput{
+					margin-left:10px;
+					position:relative;
+					height:inherit;
+					
+					
+									
+					max-width:700px;
+					border-radius:2px 0px 0px 2px;
+					display:flex;
+					align-items:center;
+					input{width:100%;height:100%;box-sizing:border-box;padding-left:0.5em;font-size:1em;border:1px solid rgb(204,204,204);border-radius:2px 0px 0px 2px;}
+					input:focus{border:1px solid rgb(0,32,235,0.8);}
+					&__Keyboard{position:absolute;right:0px;height:26px;background-image:url("./src/keyboard.png");background-repeat:no-repeat;
+								background-position:left;background-color:transparent;width:34px;background-color:white;}	
+				}
+				&__SearchEnter{	
+					opacity:0.8;		
+					height:inherit;
+					width:4em;
+					border:1px solid rgb(204,204,204);
+					background-color:rgb(248,248,248);
+					position:relative;
+					display:flex;
+					align-items:center;
+					justify-content:center;
+					cursor:pointer;
+					button{all:inherit;}
+					svg{height:20px;width:20px;font-size:10px;path{ fill:$symbolsColor; }}
+				}
+				&__SearchEnter:hover{			
+					opacity:1;
+					transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+				}
+				&__SoundRecord{
+					
+					cursor:pointer;			
+					height:inherit;
+					width:40px;
+					border:1px solid transparent;
+					position:relative;
+					display:flex;
+					align-items:center;
+					justify-content:center;
+					 button{all:inherit;}
+					 svg{font-size:10pt;height:24px;width:24px; path{ fill:$symbolsColor; } }
+				}				
+			
+		}
+		&__Right{
+		background-color:white;
+		box-sizing:border-box;
+		height:40px;
+		display:flex;		
+		min-width:0;
+		flex-shrink:1;
+		align-items:center;
+		justify-content:space-between;
+		padding-left:0;
+		padding-right:5px;
+	
+		div{box-sizing:border-box;}
+		button{cursor:pointer;}
+
+				&__SmallscreenSearch{
+					
+					box-sizing: border-box;
+					
+					display:flex;
+					position:relative;
+					svg{font-size:10pt;height:24px;width:24px; path{ fill:$symbolsColor; } }
+					button{height:40px;width:40px;border-radius:360px;border:none;background-color:inherit;display:flex;align-items:center;justify-content:center;cursor:pointer;
+					padding:0;}
+					button:active{background-color:$activeColor;}
+
+				}
+				&__Apps{
+					
+					box-sizing: border-box;
+				
+					display:none;
+					position:relative;
+					svg{font-size:10pt;height:24px;width:24px; path{ fill:$symbolsColor; } }
+					button{height:40px;width:40px;border-radius:360px;border:none;background-color:inherit;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+					button:active{background-color:$activeColor;}
+
+				}
+				&__Settings{
+					
+					box-sizing: border-box;
+				
+					position:relative;
+					svg{font-size:10pt;height:24px;width:24px; path{ fill:$symbolsColor; } }
+					button{height:40px;width:40px;border-radius:360px;border:none;background-color:inherit;display:flex;align-items:center;justify-content:center;}
+					button:active{background-color:$activeColor;}
+				}
+				&__Login{
+					
+					box-sizing: border-box;
+					
+					position:relative;
+					height:100%;
+					width:90px;
+					overflow:hidden;
+
+			button{border:1px solid $loginColor;border-radius:2px 2px 2px 2px;display:flex;background-color:inherit;
+				align-items:center;justify-content:center;height:inherit;width:inherit;}
+					&__String{padding-left:6px;font-size:10pt;color:$loginColor;font-family:MS Sans Serif;white-space:nowrap;text-overflow:ellipsis;font-weight:bold;}
+					svg{font-size:10pt;height:24px;width:24px; path{ fill:$loginColor; } }
+
+				}
+
+		}
+
+
+
+
+}
+
+
+
+}
+
+@media screen and (max-width:410px){
+.header{
+	padding-right:0;
+	padding-left:0;
+}
+/*Specify the parent because header_Left is also used at pop up side window*/
+.header .header__Left{
+ 
+}
+.header__Center{
+
+	
+}
+.header__Center__SoundRecord{
+
+}
+
+.header__Right{
+
+	&__Settings{
+		display:none;
+	}
+}
+}
+
+@media screen and (max-width:330px){
+	.header .header__Right__Login{
+		border-radius:360;
+		width:2em;
+
+		svg{
+			width:2em;
+			transform:scale(1);
+		}
+	}
+	.header .header__Right__Login:onhover ::after{
+		position:absolute;
+		margin-top:2em;
+		content:"Login";
+		width:3em;
+		height:1.5em;
+		background-color:rgb(92, 86, 86);
+		color:white;
+		z-index:9999;
+	}
+.header .header__Right__Login__String{
+display:none;
+
+}
+
+
+}

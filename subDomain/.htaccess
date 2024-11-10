@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteBase /
+
+
+RewriteCond %{HTTP_HOST} !^pics\.localhost$ [NC] 
+RewriteRule ^(.*)$ http://pics.localhost [L,NC,R=301]

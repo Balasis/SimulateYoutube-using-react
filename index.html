@@ -1,0 +1,47 @@
+<?php
+header("Access-Control-Allow-Origin: http://localhost:3000 http://localhost");
+
+
+$CSPdefault="default-src 'self' https://ajax.googleapis.com/  ;";
+$CSPscriptSrc="script-src 'self' https://apis.google.com https://ajax.googleapis.com/ ;";
+$CSPstyleSrc="style-src 'self' https://ajax.googleapis.com/ 'unsafe-inline';";
+$CSPframeSrc="frame-src https://accounts.google.com/ ;";
+$CSPconnectSrc="connect-src 'self' http://localhost:3000/ http://localhost/ ;";
+header("Content-Security-Policy-Report-Only:".$CSPdefault.$CSPscriptSrc.$CSPstyleSrc.$CSPframeSrc.$CSPconnectSrc);
+/*
+session_save_path('../phpsessions');
+ini_set('session.gc_maxlifetime',1400);
+ini_set('session.gc_probability',1);
+ini_set('session.gc_divisor',100);
+ini_set("session. cookie_httponly", True);*/
+session_start();
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>YouTube</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="icon" href="favicon.ico" type="image/ico">
+<link rel="stylesheet" href="app.css" type="text/css">
+
+</head>
+<body> 
+
+
+<div id="app">
+
+</div>
+<img src="http:pics.localhost/pics/here.png" >
+
+<script type="text/javascript" src="bundle/bundle.js" ></script>
+<script type="text/javascript" src="externalScripts/ajaxGeneratedListeners.js"></script>
+
+
+</body>
+</html>
+

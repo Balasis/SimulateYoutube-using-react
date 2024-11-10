@@ -1,0 +1,437 @@
+@use "./variables" as *;
+
+
+/*	Logo inside SideMenu(no matter the case its the same properties)	*/
+
+#MenuAndLogoSideNav .header__Left__Logo{
+	margin-right:25px;
+	margin-left:-5px;
+}
+
+/*==========================================================================================================================================*/
+/*	SideNavPopOn/Off  is for page that it DOES have parent sideNav(since its anchored by the parent to appear using left property)			*/
+/*	In this case SideNavPopOn/Off has a media query here in css to have ONLY properties at max-width(1330) scroll down to see 		  	*/
+/*	so it wont affect the parent (sideOn) when its over 1330px .Sadly we ask for the same element behave different at different page(instance)*/
+/*	and different media query + button ....we could split the element but that would cause even more trouble...SPA page problem.			*/
+/*==========================================================================================================================================*/
+
+
+
+
+
+
+
+
+
+.sideNavPopOn{
+	
+	
+	z-index:9998;	
+	transition:0.5s left;
+
+	display:flex;
+	flex-direction:column;
+	flex-shrink:1;
+	overflow-y:auto;
+	overflow-x:hidden;	
+	height:100vh;
+	width:240px;
+	position:fixed;		
+	font-family:Roboto, Arial, sans-serif;
+	scrollbar-width:thin;	
+		
+	box-sizing:border-box;
+	background-color:white;	
+
+}
+	
+.sideNavPopOff{
+	
+	transition:0.5s left;
+	display:flex;
+	flex-direction:column;
+	flex-shrink:1;
+	z-index:9998;
+	overflow-y:auto;
+	overflow-x:hidden;	
+	height:100vh;
+	width:240px;	
+	position:fixed;	
+	
+	font-family:Roboto, Arial, sans-serif;
+	scrollbar-width:thin;	
+		
+	box-sizing:border-box;
+	background-color:white;	
+}
+
+.sideNavPopOn .header__Left{
+	display: none;
+	border-bottom:1px solid rgba(120,120,120,0.3);
+	margin-bottom:1em;
+	height:57px;
+}
+
+.sideNavPopOff .header__Left{
+	display: none;
+	border-bottom:1px solid rgba(120,120,120,0.3);
+	margin-bottom:1em;
+	height:57px;
+}
+
+
+/*==========================================================================================================================================*/
+/*SideSoloNavPopOn/Off  is for page that it DOESNT have parent sideNav(since it doesnt have to be  anchored anymore by the parent to appear */
+/*==========================================================================================================================================*/
+
+.SideSoloNavPopOn{
+	left:240px;
+	transition:0.5s left;
+	display:flex;
+	flex-direction:column;
+	flex-shrink:1;
+	z-index:9998;
+	overflow-y:auto;
+	overflow-x:hidden;	
+	height:100vh;
+	width:240px;	
+	position:fixed;	
+	
+	font-family:Roboto, Arial, sans-serif;
+	scrollbar-width:thin;	
+		
+	box-sizing:border-box;
+	background-color:white;	
+}
+
+.SideSoloNavPopOff{
+	left:-240px;
+	transition:0.5s left;
+	display:flex;
+	flex-direction:column;
+	flex-shrink:1;
+	z-index:9998;
+	overflow-y:auto;
+	overflow-x:hidden;	
+	height:100vh;
+	width:240px;	
+	position:fixed;	
+	
+	font-family:Roboto, Arial, sans-serif;
+	scrollbar-width:thin;	
+		
+	box-sizing:border-box;
+	background-color:white;	
+}
+.sideNavPopOn .header__Left{
+	display: none;
+
+}
+
+.sideNavPopOff .header__Left{
+	display: none;
+
+}
+
+
+
+
+/*==========================================================================================================================================*/
+/*SideNav/SideNavHide  is the parent of the pop up..with this as a parent(if page wants it) we have it steady at the side over 1330px       */
+/*==========================================================================================================================================*/
+
+
+
+
+
+
+
+
+
+.sideNavHide{	
+	left:-240px;
+	position:fixed;
+	z-index:12;
+	margin-top:56px;
+	width:240px;
+}
+.sideNav{
+	width:240px;
+	margin-top:56px;	
+	left:0px;
+	position:fixed;
+	z-index:12;
+
+	&__Basic{
+		box-sizing:border-box;
+		padding-right:0.5em;
+		padding-top:1em;	
+		min-height:0;
+		flex-shrink:0;
+				
+			display:flex;
+	flex-direction:column;
+		text-overflow:ellipsis;		
+		width:100%;
+				nav,ul,li{padding:0;margin:0;box-sizing:border-box;}				
+				li{list-style-type:none;}
+				a{	
+					display:flex;
+					flex-direction:row;
+					align-items:center;
+					padding-left:24px;
+					padding-left:24px;
+					box-sizing:border-box;
+					width:100%;
+					height:40px;
+					text-decoration:none;
+					
+
+						path{fill:$symbolsColor;}
+				}
+				a:hover{
+					background-color:$activeColor;
+
+				}
+
+				&__LinkActive{
+					
+							
+					background-color:$activeColor;
+								svg path{
+									fill:red;
+									}
+								
+
+				}
+				&__LinkActive .sideNav__Basic__String{
+					color:rgb(03,03,03);
+					font-weight:600;
+					
+				}
+
+
+				&__Icon{
+					height:24px;
+					width:24px;
+
+				}
+				&__String{
+					font-size:14px;
+					font-family:consolas;
+					font-weight:300;
+					letter-spacing:0.2px;
+					margin-left:auto;
+					margin-right:auto;
+					text-align:left;
+					width:120px;
+					line-height:24px;
+					height:24px;
+					color:rgb(03,03,03);
+						
+					-moz-text-size-adjust:none;
+					
+					
+					
+					
+				}
+
+
+
+
+
+
+
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.smallsideNav{
+	
+	border-bottom:2px solid red;
+	display:flex;
+	width:72px;
+	left:0;
+	position:fixed;
+	height:100vh;
+	font-family:Roboto, Arial, sans-serif;
+	scrollbar-width:thin;
+	flex-direction:column;
+	overflow-y:auto;
+	overflow-x:hidden;		
+	box-sizing:border-box;
+	background-color:white;	
+	flex-shrink:0;
+	&__Basic{
+		padding-top:0.5em;
+		
+		box-sizing:border-box;
+		flex-shrink:0;
+			display:flex;
+	flex-direction:column;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		
+		min-height:15em;
+		width:100%;
+				nav,ul,li{padding:0;margin:0;box-sizing:border-box;}				
+				li{list-style-type:none;}
+				a{	
+					display:flex;
+					flex-direction:column;
+					align-items:center;
+					justify-content:center;
+					box-sizing:border-box;
+					width:100%;
+					height:74px;
+					text-decoration:none;
+					color:$symbolsColor;
+
+						path{fill:$symbolsColor;}
+				}
+				a:hover{
+					background-color:$activeColor;
+
+				}
+
+				&__LinkActive{
+					
+							
+					
+								svg path{
+									fill:red;
+									}
+								
+
+				}
+				&__LinkActive .smallsideNav__Basic__String{
+					color:red;
+					font-weight:500;
+					
+				}
+
+
+				&__Icon{
+					height:24px;
+					width:24px;
+				}
+				&__String{
+					font-size:10px;
+					text-overflow:ellipsis;
+
+					white-space:nowrap;
+					text-align:center;
+					
+				}
+
+
+
+
+
+
+
+
+	}
+}			
+
+
+@media screen and (max-width:1330px){
+/* Setting the parent of the pop up at -240px so No matter in which state it was we know how left we set the Pop up(child) to make it appear*/
+
+	.sideNav{
+		left:-240px;
+		padding-top:0;
+		
+	}
+	.sideNavHide{
+		padding-top:0;
+		
+	}
+
+
+	.sideNavPopOn{
+		left:0px;
+		top:0;
+		z-index:9998;	
+		transition:0.5s left;
+	
+		display:flex;
+		flex-direction:column;
+		flex-shrink:1;
+		overflow-y:auto;
+		overflow-x:hidden;	
+		height:100vh;
+		width:240px;
+		position:fixed;		
+		font-family:Roboto, Arial, sans-serif;
+		scrollbar-width:thin;	
+			
+		box-sizing:border-box;
+		background-color:white;	
+	
+	}
+		
+	.sideNavPopOff{
+		
+		left:-240px;
+		transition:0.5s left;
+		display:flex;
+		flex-direction:column;
+		flex-shrink:1;
+		z-index:9998;
+		overflow-y:auto;
+		overflow-x:hidden;	
+		height:100vh;
+		width:240px;	
+		position:fixed;	
+		
+		font-family:Roboto, Arial, sans-serif;
+		scrollbar-width:thin;	
+		top:0;
+		box-sizing:border-box;
+		background-color:white;	
+	}
+	
+	.sideNavPopOn .header__Left{
+		display: flex;
+		border-bottom:1px solid rgba(120,120,120,0.3);
+		margin-bottom:1em;
+		height:57px;
+	}
+	
+	.sideNavPopOff .header__Left{
+		display: flex;
+		border-bottom:1px solid rgba(120,120,120,0.3);
+		margin-bottom:1em;
+		height:57px;
+	}
+
+
+
+}
+
+
+@media screen and (max-width:792px){
+
+	.smallsideNav{
+		display:none;
+	}
+	
+}

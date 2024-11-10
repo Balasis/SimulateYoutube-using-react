@@ -1,0 +1,284 @@
+@use "./variables" as *;
+
+.homeContainer{
+	display:flex;
+	flex-direction:row;
+	box-sizing:border-box;
+	background-color:rgb(230,230,230);
+	position:relative;
+    top:0;
+    left:0;
+	
+	flex-shrink:0;
+    padding-top:56px; 
+   
+
+
+}
+
+
+
+.videoThumbGifOn:hover .homeMain__VideosFrame__VideoFrame__Upper__Pic img {
+    opacity:0;
+    transition:1.5s opacity;    
+}
+
+
+       
+
+
+
+
+
+    .homeMain{
+   
+         display:flex;
+         padding-left:72px;
+         margin-top:1em;
+         width:100%; 
+         background-color:rgb(230,230,230);
+         box-sizing:border-box; 
+         justify-content:center;
+         flex-direction:column;
+         align-items:center;
+
+         --videosMarginLeft:8px;
+         --videosMarginRight:8px;
+         --videosMargin:15px;
+         --videosWidth:370px;
+
+            &__VideosFrame{
+                display:flex;                     
+                flex-wrap:wrap;
+                flex-direction:row;            
+                flex-shrink:1;
+                flex-grow:1;
+                margin-left:var(--videosMargin);
+                padding-top:1em;
+                background-color:rgb(230,230,230);            
+                max-width:calc( (  var(--videosWidth) + var(--videosMarginLeft) + var(--videosMarginRight) )   *  ( var(--videosPerRow) ) );           
+                box-sizing:border-box;
+                justify-content:flex-start;
+                align-content:flex-start;            
+                 &__VideoFrame{
+                     margin-bottom:40px;
+                     box-sizing: border-box;
+                    
+                     display:flex;
+                     flex-direction:column;
+                     flex-shrink:1;
+                     
+                     margin-left:var(--videosMarginLeft);
+                     margin-right:var(--videosMarginRight);
+                     width:calc(  (100% / var(--videosPerRow))        -       (  var(--videosMarginLeft) + var(--videosMarginRight)   )  );                   
+                    
+                             
+                
+                    
+                         &__Upper{
+
+                             display:flex;
+                             background-repeat:no-repeat;
+                             background-size:100% 100%;
+                             background-color:orange;
+                            
+                             box-sizing:border-box;
+                             padding:0;
+                             margin:0;
+                             width:100%;
+                             max-height:calc(var(--videosWidth)/1.782);
+                             position:relative;
+                             overflow:hidden;
+                             cursor:pointer;
+                              &__Gif{
+                                display:block;
+                                position:absolute;
+                                
+                                height:100%;
+                                width:100%;
+                                padding:0;
+                                margin:0;
+                              
+                                img{ 
+                                    height:100%;
+                                    width:100%;                
+                                    box-sizing:border-box;
+                                }
+
+                              }
+
+                              &__Pic{
+                                
+                                img{
+                                    margin:0;
+                                    padding:0;
+                                    display:block;
+                                    height:100%;
+                                    width:100%;
+                                    box-sizing:border-box;
+                                    
+                                    
+                                  }
+
+
+
+                              }
+                              
+                         }
+                     
+                         &__Bottom{
+                             display:flex;                             
+                             background-color:white;                    
+                                                         
+                             padding:3px;
+
+                                    &__ProfileInfo{
+                                        width:20%
+                                            
+                                    }
+                                    &__VideoInfo{   
+                                        padding-top:5px;
+                                        padding-bottom:5px;                                    
+                                        flex-grow:1;
+                                        display:flex;
+                                        flex-direction:column;
+                                            &__Title{
+                                                text-overflow:ellipsis;
+                                                overflow:hidden;
+                                                color:black;
+                                                font-weight:bold;
+                                            }
+                                            &__Description{
+                                                text-overflow:ellipsis;
+                                                overflow:hidden;
+                                                color:grey;
+                                            }
+
+                                    }
+                                    &__Settings{                                        
+                                        width:10%;
+                                    }
+
+
+                         }
+
+
+
+
+                }  
+    
+            }
+
+
+    }
+
+
+
+/*    CAREFULL PLACE IT  AFTER HOMEMAIN IN CSS HERE-NEEDS TO OVERIDE IT                     */
+.homeMainPaddingLeft{
+    padding-left:240px;
+    }
+
+
+
+
+@media screen and (min-width:2280px){
+        .homeMain{
+            --videosPerRow:6;
+            --videosWidth:370px;
+        }
+    
+ }
+
+
+
+
+
+@media screen and (max-width:2280px){
+        .homeMain{
+            --videosPerRow:5;
+            --videosWidth:370px;
+        }
+    
+ }
+
+
+
+@media screen and (max-width:1950px){
+    .homeMain{
+        --videosPerRow:4;
+        --videosWidth:370px;
+    }
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width:1330px){
+    .homeMainPaddingLeft{
+        padding-left:72px;
+
+}
+
+    
+}
+
+@media screen and (max-width:1100px){
+.homeMain{
+    --videosPerRow:3;
+    --videosWidth:370px;
+}
+
+}
+
+@media screen and (max-width:870px){
+    .homeMain{
+        --videosPerRow:2;
+        --videosWidth:325px;
+    }
+    
+    }
+
+@media screen and (max-width:510px){
+    .homeMain{
+        --videosPerRow:1;
+        --videosWidth:325px;
+    }
+    
+    }
+    @media screen and (max-width:470px){
+        .homeMain{
+            padding-left:0;
+            --videosPerRow:1;
+            --videosWidth:370px;
+            --videosMarginLeft:0px;
+            --videosMarginRight:0px;
+           
+        
+        }
+ 
+
+
+       
+    } 
+        
+        
+       
+
+
+
+        
+    
+
+
+@media screen and (max-width:792px){
+
+	.homeMain{
+		padding-left:0px;
+	}
+	
+}
